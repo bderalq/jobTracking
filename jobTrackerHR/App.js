@@ -1,12 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import LoginPage from './screens/LoginPage';
+import RegisterPage from './screens/RegisterPage';
+import NewJobs from './screens/NewJobs'
+import AllJob from './screens/AllJob';
+import AllApplicants from './screens/AllApplicants';
+import ApplicantsDetails from './screens/ApplicantsDetails';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    //<View style={styles.container}>
+        // <LoginPage />
+        // <RegisterPage />
+        // <NewJobs /> 
+        // <AllJob />
+        <AllApplicants /> 
+        // <ApplicantsDetails />
+    //</View>
   );
 }
 
