@@ -1,115 +1,127 @@
-import { Ionicons } from '@expo/vector-icons'; // إضافة استيراد الأيقونات
+import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const LoginPage = () => {
+  const navigation = useNavigation();
+
   return (
     <LinearGradient 
-    //   colors={['#020024', '#090979', '#00d4ff']} // تدرج لوني من البنفسجي إلى الأزرق
-    //   colors={['#1b66ab', '#5c82af']} // تدرج لوني من البنفسجي إلى الأزرق
-    colors={['#833ab4', '#fd1d1d', '#fcb.045']} 
-    // colors={['#eeaeca', '#94bbe9']} 
+      colors={['#1e3c72', '#2a5298']} // Professional blue gradient
       style={styles.container}
     >
       <Text style={styles.title}>Login</Text>
       
       <View style={styles.inputContainer}>
-        <Ionicons name="person-outline" size={20} color="#888" style={styles.icon} />
         <TextInput 
-          style={styles.email}
+          style={styles.input}
           placeholder='Username'
-          placeholderTextColor="#888"
+          placeholderTextColor="#aaa"
         />
-      </View>
-      background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);      <View style={styles.inputContainer}>
-        <Ionicons name="lock-closed-outline" size={20} color="#888" style={styles.icon} />
-        <TextInput 
-          style={styles.email}
-          placeholder='Password'
-          placeholderTextColor="#888"
-          secureTextEntry
-        />
+        <Ionicons name="person-outline" size={20} color="#aaa" style={styles.icon} />
       </View>
 
-      <TouchableOpacity
-        style={styles.button}
-        // onPress={handleLogin}
-      >
+      <View style={styles.inputContainer}>
+        <TextInput 
+          style={styles.input}
+          placeholder='Password'
+          placeholderTextColor="#aaa"
+          secureTextEntry
+        />
+        <Ionicons name="lock-closed-outline" size={20} color="#aaa" style={styles.icon} />
+      </View>
+
+      <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => {/* navigation.navigate("ForgotPassword"); */}}>
+      <TouchableOpacity>
         <Text style={styles.forgotPassword}>Forgot Password?</Text>
       </TouchableOpacity>
 
-      <Text style={styles.align}>Don't have an account?</Text>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("Register");
-        }}
-      >
-        <Text style={styles.align}>Register</Text>
-      </TouchableOpacity>
+      <View style={styles.registerContainer}>
+        <Text style={styles.registerHint}>Don't have an account? </Text>
+        <TouchableOpacity>
+          <Text style={styles.registerText}>Register</Text>
+        </TouchableOpacity>
+      </View>
     </LinearGradient>
-  )
-}
-export default LoginPage
+  );
+};
 
- const styles = StyleSheet.create({
-    container: {
-    flexGrow: 1,
-    paddingTop: 90,
-    paddingBottom: 30,
-    paddingHorizontal: 15,
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 20,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   title: {
     fontSize: 32,
     fontWeight: 'bold',
     color: '#fff',
-    marginBottom: 20,
+    marginBottom: 40,
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f1f1f1',
-    borderRadius: 12,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    borderRadius: 15,
     marginBottom: 15,
-    paddingLeft: 15,
-    width : '100%'
+    paddingHorizontal: 15,
+    width: '100%',
+    height: 55,
+  },
+  input: {
+    flex: 1,
+    height: '100%',
+    fontSize: 16,
+    color: '#fff',
+    marginLeft: 10,
   },
   icon: {
     marginRight: 10,
   },
-  email: {
-    width: '100%',
-    height: 50,
-    fontFamily: 'Roboto',
-    fontSize: 16,
-    color: '#333',
-  },
   button: {
-    padding: 15,
-    borderRadius: 5,
-    backgroundColor: '#4CAF50',
-    alignItems: "center",
     width: '100%',
-    marginTop: 10,
+    height: 55,
+    backgroundColor: '#fff',
+    borderRadius: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   buttonText: {
-    fontWeight: "bold",
-    fontSize: 16,
-    color: "white",
+    color: '#1e3c72',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
   forgotPassword: {
     color: '#fff',
-    marginTop: 10,
+    marginTop: 15,
+    fontSize: 14,
+  },
+  registerContainer: {
+    flexDirection: 'row',
+    marginTop: 30,
+  },
+  registerHint: {
+    color: '#fff',
+  },
+  registerText: {
+    color: '#fff',
+    fontWeight: 'bold',
     textDecorationLine: 'underline',
   },
-  align: {
-    color: '#fff',
-    marginTop: 10,
-  },
-  // ... existing styles ...
 });
+
+export default LoginPage;
