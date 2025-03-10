@@ -115,7 +115,7 @@ export default RegisterPage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 90,
+    paddingTop: 200,
     paddingBottom: 30,
     paddingHorizontal: 20,
     alignItems: "center",
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     height: "100%",
     fontFamily: "Roboto",
     fontSize: 16,
-    color: "#333",
+    color: 'white',
   },
   eyeIcon: {
     padding: 5,
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
   button: {
     padding: 15,
     borderRadius: 12,
-    backgroundColor: "#4CAF50",
+    backgroundColor: 'white',
     alignItems: "center",
     width: "100%",
     marginTop: 20,
@@ -163,8 +163,9 @@ const styles = StyleSheet.create({
   buttonText: {
     fontWeight: "bold",
     fontSize: 18,
-    color: "white",
-  },
+    color: '#1e3c72',
+
+   },
   footer: {
     flexDirection: "row",
     marginTop: 30,

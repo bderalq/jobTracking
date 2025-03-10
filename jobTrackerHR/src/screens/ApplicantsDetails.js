@@ -49,21 +49,31 @@ import { SegmentedButtons } from "react-native-paper";
           <Text style={styles.major}>{applicant.ApplicantMajor}</Text>
 
           <View style={styles.actionButtons}>
-          <TouchableOpacity style={[styles.actionButton, styles.rejectButton]}>
-                        <Text style={styles.buttonText}>Reject</Text>
-                     </TouchableOpacity>
-                     <TouchableOpacity style={[styles.actionButton, styles.approveButton]}>
-                         <Text style={styles.buttonText}>Approve</Text>
-                     </TouchableOpacity>
-                     {/* <TouchableOpacity style={[styles.actionButton, styles.cvButton]} onPress={openCV}>
-              <MaterialIcons name="description" size={24} color="#fff" />
-              <Text style={styles.buttonText}> CV</Text>
-            </TouchableOpacity> */}
-            <TouchableOpacity style={[styles.button, styles.contactButton]}onPress={openCV}>
-              <MaterialIcons name="description" size={24} color="#fff" />
-              <Text style={styles.buttonText}>CV</Text>
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity 
+            style={[styles.actionButton, styles.rejectButton]}
+            onPress={() => setStatus('rejected')}
+          >
+            <Ionicons name="close-circle" size={20} color="#fff" />
+            <Text style={styles.buttonText}>Reject</Text>
+          </TouchableOpacity>
+          
+          <TouchableOpacity 
+            style={[styles.actionButton, styles.approveButton]}
+            onPress={() => setStatus('approved')}
+          >
+            <Ionicons name="checkmark-circle" size={20} color="#fff" />
+            <Text style={styles.buttonText}>Approve</Text>
+          </TouchableOpacity>
+          
+          <TouchableOpacity 
+            style={[styles.actionButton, styles.cvButton]} 
+            onPress={openCV}
+          >
+            <MaterialIcons name="description" size={20} color="#fff" />
+            <Text style={styles.buttonText}>CV</Text>
+          </TouchableOpacity>
+        </View>
+
           </View>
   
         <View style={styles.detailsContainer}>
@@ -106,37 +116,6 @@ import { SegmentedButtons } from "react-native-paper";
             </View>
           </View>
   
-          <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Languages</Text>
-            <View style={styles.languagesContainer}>
-              {applicant.ApplicantLanguages.split(",").map((language, index) => (
-                <View key={index} style={styles.languageBadge}>
-                  <Text style={styles.languageText}>{language.trim()}</Text>
-                </View>
-              ))}
-            </View>
-          </View>
-  
-          <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Experience</Text>
-            <View style={styles.experienceBox}>
-              <MaterialIcons name="work" size={24} color="#4158D0" />
-              <Text style={styles.experienceText}>
-                {applicant.ApplicantExperience}
-              </Text>
-            </View>
-          </View>
-  
-          <View style={styles.actionButtons}>
-            <TouchableOpacity style={styles.button} onPress={openCV}>
-              <MaterialIcons name="description" size={24} color="#fff" />
-              <Text style={styles.buttonText}>View CV</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.button, styles.contactButton]}>
-              <MaterialIcons name="chat" size={24} color="#fff" />
-              <Text style={styles.buttonText}>Contact</Text>
-            </TouchableOpacity>
-          </View>
         </View>
       </ScrollView>
     );
@@ -290,42 +269,45 @@ import { SegmentedButtons } from "react-native-paper";
     contactButton: {
       backgroundColor: "#C850C0",
     },
-    buttonText: {
-      color: "#fff",
-      fontSize: 16,
-      fontWeight: "bold",
-    },  buttonContainer: {
-                flexDirection: 'row',
-                justifyContent: 'space-around',
-                width: '100%',
-                marginBottom: 30,
-            },
-            actionButton: {
-                paddingVertical: 12,
-                paddingHorizontal: 20,
-                borderRadius: 8,
-                minWidth: 80,
-                alignItems: 'center',
-                shadowColor: '#000',
-                shadowOffset: { width: 0, height: 2 },
-                shadowOpacity: 0.2,
-                shadowRadius: 3,
-                elevation: 3,
-            },
-            rejectButton: {
-                backgroundColor: 'red',
-            },
-            approveButton: {
-                backgroundColor: "#4CAF50",
-            },
-            cvButton: {
-                backgroundColor: 'blue',
-            },
+  
+
             buttonText: {
                 color: '#fff',
                 fontSize: 16,
                 fontWeight: '600',
             },
+            actionButtons: {
+              flexDirection: 'row',
+              justifyContent: 'center',
+              gap: 10,
+              width: '100%',
+              marginBottom: 20,
+            },
+            actionButton: {
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 8,
+              paddingVertical: 12,
+              paddingHorizontal: 20,
+              borderRadius: 25,
+              minWidth: 100,
+            },
+            rejectButton: {
+              backgroundColor: '#dc3545',
+            },
+            approveButton: {
+              backgroundColor: '#28a745',
+            },
+            cvButton: {
+              backgroundColor: '#007bff',
+            },
+            buttonText: {
+              color: '#fff',
+              fontSize: 14,
+              fontWeight: '600',
+            },
+          
   });
   
 

@@ -14,38 +14,40 @@ const LoginPage = () => {
       <Text style={styles.title}>Login</Text>
       
       <View style={styles.inputContainer}>
+      <Ionicons name="person-outline" size={20} color="#aaa" style={styles.icon} />
+
         <TextInput 
           style={styles.input}
           placeholder='Username'
           placeholderTextColor="#aaa"
         />
-        <Ionicons name="person-outline" size={20} color="#aaa" style={styles.icon} />
+        
+        {/* <Ionicons name="person-outline" size={20} color="#aaa" style={styles.icon} /> */}
       </View>
 
       <View style={styles.inputContainer}>
+      <Ionicons name="lock-closed-outline" size={20} color="#aaa" style={styles.icon} />
+
         <TextInput 
           style={styles.input}
           placeholder='Password'
           placeholderTextColor="#aaa"
           secureTextEntry
         />
-        <Ionicons name="lock-closed-outline" size={20} color="#aaa" style={styles.icon} />
+        {/* <Ionicons name="lock-closed-outline" size={20} color="#aaa" style={styles.icon} /> */}
       </View>
 
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity>
-        <Text style={styles.forgotPassword}>Forgot Password?</Text>
-      </TouchableOpacity>
-
-      <View style={styles.registerContainer}>
-        <Text style={styles.registerHint}>Don't have an account? </Text>
-        <TouchableOpacity>
-          <Text style={styles.registerText}>Register</Text>
-        </TouchableOpacity>
-      </View>
+            <View style={styles.footer}>
+              <Text style={styles.footerText}>Don't have an account?</Text>
+              <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+                <Text style={styles.footerLink}>Register Here</Text>
+              </TouchableOpacity>
+            </View>
+      
     </LinearGradient>
   );
 };
@@ -77,7 +79,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: '100%',
     fontSize: 16,
-    color: '#fff',
+    color: 'white',
     marginLeft: 10,
   },
   icon: {
@@ -121,7 +123,22 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
     textDecorationLine: 'underline',
+  },  footer: {
+    flexDirection: "row",
+    marginTop: 30,
+    gap: 10,
   },
+  footerText: {
+    color: "#fff",
+    fontSize: 16,
+  },
+  footerLink: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
+    textDecorationLine: "underline",
+  },
+
 });
 
 export default LoginPage;
