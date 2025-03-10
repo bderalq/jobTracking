@@ -1,15 +1,9 @@
 import {
-    StyleSheet,
-    Text,
-    View,
-    Image,
-    ScrollView,
-    TouchableOpacity,
-    Linking,
-  } from "react-native";
+    StyleSheet,Text,View,Image,ScrollView,TouchableOpacity,Linking} from "react-native";
   import React from "react";
   import { LinearGradient } from "expo-linear-gradient";
   import { MaterialIcons, Ionicons, FontAwesome5 } from "@expo/vector-icons";
+import { SegmentedButtons } from "react-native-paper";
   
   const ApplicantsDetails = ({ route }) => {
     const applicant = {
@@ -34,7 +28,8 @@ import {
     const openCV = () => {
       Linking.openURL(applicant.ApplicantCVUrl);
     };
-  
+    const [value, setValue] = React.useState('');
+
     return (
       <ScrollView style={styles.container}>
         {/* <LinearGradient */}
@@ -47,12 +42,12 @@ import {
               source={{ uri: applicant.ApplicantImage }}
               style={styles.profileImage}
             />
-            <View style={styles.statusDot} />
 
           </View>
   
           <Text style={styles.name}>{applicant.ApplicantName}</Text>
           <Text style={styles.major}>{applicant.ApplicantMajor}</Text>
+
           <View style={styles.actionButtons}>
           <TouchableOpacity style={[styles.actionButton, styles.rejectButton]}>
                         <Text style={styles.buttonText}>Reject</Text>
@@ -70,10 +65,8 @@ import {
             </TouchableOpacity>
           </View>
           </View>
-        {/* </LinearGradient> */}
   
         <View style={styles.detailsContainer}>
-          {/* Basic Information */}
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Basic Information</Text>
             <View style={styles.infoRow}>
@@ -90,7 +83,6 @@ import {
             </View>
           </View>
   
-          {/* Contact Information */}
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Contact Information</Text>
             <View style={styles.infoRow}>
@@ -103,7 +95,6 @@ import {
             </View>
           </View>
   
-          {/* Skills */}
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Skills</Text>
             <View style={styles.skillsContainer}>
@@ -115,7 +106,6 @@ import {
             </View>
           </View>
   
-          {/* Languages */}
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Languages</Text>
             <View style={styles.languagesContainer}>
@@ -127,7 +117,6 @@ import {
             </View>
           </View>
   
-          {/* Experience */}
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Experience</Text>
             <View style={styles.experienceBox}>
@@ -138,7 +127,6 @@ import {
             </View>
           </View>
   
-          {/* Action Buttons */}
           <View style={styles.actionButtons}>
             <TouchableOpacity style={styles.button} onPress={openCV}>
               <MaterialIcons name="description" size={24} color="#fff" />
@@ -164,7 +152,7 @@ import {
     headerGradient: {
       padding: 20,
       alignItems: "center",
-      paddingTop: 60,
+      paddingTop: 20,
       borderBottomLeftRadius: 30,
       borderBottomRightRadius: 30,
     },

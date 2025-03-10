@@ -26,17 +26,15 @@ const RegisterPage = ({ navigation }) => {
       Alert.alert("Error", "Password must be at least 6 characters");
       return;
     }
-
-    // Add your registration logic here
     console.log("Registering new user:", { username, employeeId });
   };
 
   return (
     <LinearGradient
-    colors={['#1e3c72', '#2a5298']} // Professional blue gradient
+    colors={['#1e3c72', '#2a5298']} 
     style={styles.container}
     >
-      <Text style={styles.title}>Create Account</Text>
+      <Text style={styles.title}>Register</Text>
 
       <View style={styles.inputContainer}>
         <Ionicons
@@ -132,12 +130,14 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#f1f1f1",
+    // backgroundColor: "#f1f1f1",
     borderRadius: 12,
     marginBottom: 20,
     paddingHorizontal: 15,
     width: "100%",
     height: 55,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+
   },
   icon: {
     marginRight: 10,

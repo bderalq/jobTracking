@@ -83,7 +83,8 @@ const NewJobs = () => {
         paddingBottom: 30,
         paddingHorizontal: 15,
        justifyContent: 'center',
-       alignItems: 'center'
+       alignItems: 'center',
+       backgroundColor :'white'
       },
       title: {
         fontSize: 32,
